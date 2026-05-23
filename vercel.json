@@ -1,0 +1,8 @@
+{
+  "builds": [
+    {
+      "src": "landing/next.config.js",
+      "use": "@vercel/next"
+    }
+  ]
+}
