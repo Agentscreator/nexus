@@ -454,6 +454,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Demo Section */}
+      <section id="demo" className="py-20 bg-white/50 backdrop-blur-sm relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-nexus-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-nexus-indigo-400 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-extrabold text-gray-900 mb-4">See Nexus in Action</h2>
+            <p className="text-xl text-gray-700">Watch how our agents autonomously solve real-world DevOps challenges</p>
+          </div>
+
+          <div className="glass-effect rounded-3xl shadow-2xl p-4 border border-nexus-blue-200 max-w-5xl mx-auto">
+            <div className="relative aspect-video bg-gradient-to-br from-nexus-blue-900 to-nexus-indigo-900 rounded-2xl overflow-hidden group">
+              {/* Video placeholder */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-white/20 backdrop-blur-lg rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform cursor-pointer">
+                    <svg className="w-12 h-12 text-white ml-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-2xl font-bold mb-2">Demo Video Coming Soon</p>
+                  <p className="text-blue-200 text-lg">3-minute walkthrough of Nexus solving a CI/CD pipeline failure</p>
+                </div>
+              </div>
+              
+              {/* Animated grid overlay */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="grid grid-cols-8 grid-rows-6 h-full w-full">
+                  {[...Array(48)].map((_, i) => (
+                    <div key={i} className="border border-white/10"></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Demo highlights */}
+          <div className="grid md:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto">
+            <div className="glass-effect p-6 rounded-xl border border-nexus-blue-200 text-center">
+              <div className="text-4xl font-bold text-nexus-blue-600 mb-2">⚡</div>
+              <h3 className="font-bold text-gray-900 mb-2">Real-Time Execution</h3>
+              <p className="text-gray-700 text-sm">Watch agents reason and act in real-time</p>
+            </div>
+            <div className="glass-effect p-6 rounded-xl border border-nexus-cyan-200 text-center">
+              <div className="text-4xl font-bold text-nexus-cyan-600 mb-2">🔄</div>
+              <h3 className="font-bold text-gray-900 mb-2">Self-Healing Demo</h3>
+              <p className="text-gray-700 text-sm">See automatic failure recovery in action</p>
+            </div>
+            <div className="glass-effect p-6 rounded-xl border border-nexus-indigo-200 text-center">
+              <div className="text-4xl font-bold text-nexus-indigo-600 mb-2">👁️</div>
+              <h3 className="font-bold text-gray-900 mb-2">Human Oversight</h3>
+              <p className="text-gray-700 text-sm">Confidence-based escalation workflow</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases Section */}
       <section className="py-20 bg-gradient-to-br from-nexus-blue-50 to-nexus-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
