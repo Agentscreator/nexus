@@ -32,64 +32,106 @@ const tasks: Task[] = [
     subtasks: [
       { name: "Establish connection with GitLab MCP", completed: true },
       { name: "Implement authentication and authorization", completed: true },
-      { name: "Create basic tool for listing projects", completed: true },
+      { name: "Create 9 GitLab tools (projects, issues, MRs)", completed: true },
       { name: "Write integration tests for GitLab connection", completed: true }
     ]
   },
   {
     id: 2,
-    title: "CI/CD Pipeline Monitoring Agent",
-    status: "in_progress",
-    category: "AI/ML",
-    effort: "L · 5 days",
-    description: "Build an agent that monitors CI/CD pipelines and reports failures.",
-    subtasks: [
-      { name: "Develop tool to get pipeline status", completed: true },
-      { name: "Create agent to periodically check pipelines", completed: true },
-      { name: "Implement notification system for failures", completed: false },
-      { name: "Add ability to re-run failed jobs", completed: false }
-    ]
-  },
-  {
-    id: 3,
-    title: "Automated Issue Creation from Failures",
-    status: "pending",
-    category: "DevOps",
-    effort: "M · 3 days",
-    description: "Create a new agent that automatically creates a GitLab issue when a CI/CD pipeline fails.",
-    subtasks: [
-      { name: "Develop tool to create GitLab issues", completed: false },
-      { name: "Extract relevant failure logs for the issue", completed: false },
-      { name: "Assign the issue to the correct developer", completed: false },
-      { name: "Add labels and milestones to the issue", completed: false }
-    ]
-  },
-  {
-    id: 4,
-    title: "Root Cause Analysis Agent",
-    status: "pending",
-    category: "AI/ML",
-    effort: "XL · 8 days",
-    description: "An advanced agent that analyzes failed pipeline logs to determine the root cause of the failure.",
-    subtasks: [
-      { name: "Fine-tune a model for log analysis", completed: false },
-      { name: "Develop tool to fetch and parse logs", completed: false },
-      { name: "Implement reasoning to identify error patterns", completed: false },
-      { name: "Suggest a potential fix in the created issue", completed: false }
-    ]
-  },
-  {
-    id: 5,
-    title: "Real-time Agent Observability Dashboard",
-    status: "in_progress",
+    title: "Real-time WebSocket Dashboard",
+    status: "completed",
     category: "Frontend",
     effort: "M · 4 days",
     description: "A real-time dashboard to visualize agent activity, tool calls, and costs.",
     subtasks: [
       { name: "Set up WebSocket server for real-time updates", completed: true },
-      { name: "Design and build the dashboard UI", completed: false },
-      { name: "Display agent thoughts and actions", completed: false },
-      { name: "Track and display token usage and costs", completed: false }
+      { name: "Design and build the dashboard UI", completed: true },
+      { name: "Display agent thoughts and actions", completed: true },
+      { name: "Track and display token usage and costs", completed: true }
+    ]
+  },
+  {
+    id: 3,
+    title: "Terminal UI (TUI) with Live Streaming",
+    status: "completed",
+    category: "Frontend",
+    effort: "L · 5 days",
+    description: "Interactive terminal interface with agent picker, live streaming, and chat.",
+    subtasks: [
+      { name: "Build agent picker modal (Ctrl+A)", completed: true },
+      { name: "Implement live streaming pane for LLM tokens", completed: true },
+      { name: "Add PDF attachment support", completed: true },
+      { name: "Multi-graph commands and session management", completed: true }
+    ]
+  },
+  {
+    id: 4,
+    title: "Demo Video Production",
+    status: "pending",
+    category: "DevOps",
+    effort: "M · 3 days",
+    description: "Create a 3-minute demo video showing Nexus solving a real CI/CD pipeline failure.",
+    subtasks: [
+      { name: "Write demo script and storyboard", completed: false },
+      { name: "Set up demo GitLab project with failing pipeline", completed: false },
+      { name: "Record screen capture of agent execution", completed: false },
+      { name: "Edit video with voiceover and captions", completed: false }
+    ]
+  },
+  {
+    id: 5,
+    title: "Google Cloud Deployment",
+    status: "pending",
+    category: "DevOps",
+    effort: "M · 2 days",
+    description: "Deploy Nexus to Google Cloud Run with public URL for hackathon judges.",
+    subtasks: [
+      { name: "Create Dockerfile for containerization", completed: false },
+      { name: "Set up Google Cloud project and credentials", completed: false },
+      { name: "Deploy to Cloud Run with environment variables", completed: false },
+      { name: "Test public accessibility and dashboard", completed: false }
+    ]
+  },
+  {
+    id: 6,
+    title: "Devpost Submission",
+    status: "pending",
+    category: "DevOps",
+    effort: "S · 1 day",
+    description: "Complete and submit the Devpost hackathon entry with all required materials.",
+    subtasks: [
+      { name: "Upload demo video to YouTube/Vimeo", completed: false },
+      { name: "Fill out Devpost submission form", completed: false },
+      { name: "Add screenshots of dashboard and TUI", completed: false },
+      { name: "Submit before June 11, 2026 deadline", completed: false }
+    ]
+  },
+  {
+    id: 7,
+    title: "Documentation & Polish",
+    status: "in_progress",
+    category: "Frontend",
+    effort: "M · 3 days",
+    description: "Improve documentation, add architecture diagrams, and polish the landing page.",
+    subtasks: [
+      { name: "Create architecture diagram", completed: false },
+      { name: "Add dashboard screenshots to README", completed: false },
+      { name: "Update landing page with accurate features", completed: true },
+      { name: "Write deployment guide", completed: false }
+    ]
+  },
+  {
+    id: 8,
+    title: "CI/CD Self-Healing Demo Scenario",
+    status: "in_progress",
+    category: "AI/ML",
+    effort: "L · 4 days",
+    description: "Build a compelling demo showing Nexus automatically fixing a failing GitLab pipeline.",
+    subtasks: [
+      { name: "Create sample GitLab project with tests", completed: true },
+      { name: "Implement agent workflow for pipeline monitoring", completed: false },
+      { name: "Add automatic failure detection and analysis", completed: false },
+      { name: "Test end-to-end self-healing workflow", completed: false }
     ]
   }
 ];
@@ -197,20 +239,141 @@ export default function Home() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
             <div className="glass-effect p-6 rounded-2xl border border-nexus-blue-200 card-hover">
-              <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-nexus-blue-600 to-nexus-cyan-600 mb-2">87%</div>
-              <div className="text-gray-700 font-medium">Success Rate</div>
+              <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-nexus-blue-600 to-nexus-cyan-600 mb-2">2M</div>
+              <div className="text-gray-700 font-medium">Token Context</div>
             </div>
             <div className="glass-effect p-6 rounded-2xl border border-nexus-cyan-200 card-hover">
-              <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-nexus-cyan-600 to-nexus-blue-600 mb-2">45s</div>
-              <div className="text-gray-700 font-medium">Avg Completion</div>
+              <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-nexus-cyan-600 to-nexus-blue-600 mb-2">9+</div>
+              <div className="text-gray-700 font-medium">GitLab Tools</div>
             </div>
             <div className="glass-effect p-6 rounded-2xl border border-nexus-indigo-200 card-hover">
-              <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-nexus-indigo-600 to-purple-600 mb-2">$0.03</div>
-              <div className="text-gray-700 font-medium">Cost per Mission</div>
+              <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-nexus-indigo-600 to-purple-600 mb-2">Live</div>
+              <div className="text-gray-700 font-medium">Dashboard</div>
             </div>
             <div className="glass-effect p-6 rounded-2xl border border-blue-200 card-hover">
               <div className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-nexus-indigo-600 mb-2">5+</div>
               <div className="text-gray-700 font-medium">Partner Tracks</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Getting Started Section */}
+      <section className="py-20 bg-white/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-extrabold text-gray-900 mb-4">Quick Start</h2>
+            <p className="text-xl text-gray-700">Get your first agent running in minutes</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Installation */}
+            <div className="glass-effect rounded-2xl p-8 border border-nexus-blue-200">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-nexus-blue-500 to-nexus-blue-700 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  1
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Install & Configure</h3>
+              </div>
+              <div className="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                <pre className="text-green-400 text-sm font-mono">
+{`# Clone the repository
+git clone https://github.com/Agentscreator/nexus
+cd nexus
+
+# Run quickstart
+./quickstart.sh
+
+# Set up credentials
+export GOOGLE_API_KEY=your_key
+export GITLAB_TOKEN=your_token`}
+                </pre>
+              </div>
+            </div>
+
+            {/* Run Agent */}
+            <div className="glass-effect rounded-2xl p-8 border border-nexus-cyan-200">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-nexus-cyan-500 to-nexus-cyan-700 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  2
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Launch Dashboard</h3>
+              </div>
+              <div className="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                <pre className="text-green-400 text-sm font-mono">
+{`# Start the server with dashboard
+uv run python -m framework server
+
+# Or use the Terminal UI
+hive tui
+
+# Access at http://localhost:8787`}
+                </pre>
+              </div>
+            </div>
+
+            {/* GitLab Setup */}
+            <div className="glass-effect rounded-2xl p-8 border border-nexus-indigo-200">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-nexus-indigo-500 to-nexus-indigo-700 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  3
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Configure GitLab</h3>
+              </div>
+              <div className="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                <pre className="text-green-400 text-sm font-mono">
+{`# Interactive setup
+maven gitlab setup
+
+# Verify connection
+maven gitlab status
+
+# Test integration
+maven gitlab test`}
+                </pre>
+              </div>
+            </div>
+
+            {/* Run Mission */}
+            <div className="glass-effect rounded-2xl p-8 border border-blue-200">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  4
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Run Your First Mission</h3>
+              </div>
+              <div className="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                <pre className="text-green-400 text-sm font-mono">
+{`# Execute an agent
+uv run python -m framework run \\
+  exports/your_agent \\
+  --input '{"goal": "Fix CI/CD"}'
+
+# Watch in real-time dashboard!`}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          {/* Features callout */}
+          <div className="mt-12 glass-effect rounded-2xl p-8 border border-nexus-blue-200 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">What You Get</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-4xl mb-3">🖥️</div>
+                <h4 className="font-bold text-gray-900 mb-2">WebSocket Dashboard</h4>
+                <p className="text-gray-600 text-sm">Real-time agent execution, tool calls, and cost tracking</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">💬</div>
+                <h4 className="font-bold text-gray-900 mb-2">Terminal UI (TUI)</h4>
+                <p className="text-gray-600 text-sm">Interactive chat interface with live streaming</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">🔧</div>
+                <h4 className="font-bold text-gray-900 mb-2">Agent Builder</h4>
+                <p className="text-gray-600 text-sm">Hive Coder meta-agent builds agents from natural language</p>
+              </div>
             </div>
           </div>
         </div>
