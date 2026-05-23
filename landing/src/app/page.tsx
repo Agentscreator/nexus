@@ -38,6 +38,20 @@ const tasks: Task[] = [
   },
   {
     id: 2,
+    title: "GitLab CI/CD Agent Implementation",
+    status: "pending",
+    category: "AI/ML",
+    effort: "L · 5 days",
+    description: "Build the actual agent that uses GitLab tools to monitor pipelines and auto-fix failures.",
+    subtasks: [
+      { name: "Create agent package in core/framework/agents/gitlab_cicd/", completed: false },
+      { name: "Implement pipeline monitoring node with webhook triggers", completed: false },
+      { name: "Add failure analysis node using job logs", completed: false },
+      { name: "Create auto-fix node that commits patches and creates MRs", completed: false }
+    ]
+  },
+  {
+    id: 3,
     title: "Real-time WebSocket Dashboard",
     status: "completed",
     category: "Frontend",
@@ -51,7 +65,7 @@ const tasks: Task[] = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Terminal UI (TUI) with Live Streaming",
     status: "completed",
     category: "Frontend",
@@ -65,7 +79,7 @@ const tasks: Task[] = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     title: "Demo Video Production",
     status: "pending",
     category: "DevOps",
@@ -79,7 +93,7 @@ const tasks: Task[] = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     title: "Google Cloud Deployment",
     status: "pending",
     category: "DevOps",
@@ -93,7 +107,7 @@ const tasks: Task[] = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     title: "Devpost Submission",
     status: "pending",
     category: "DevOps",
@@ -107,7 +121,7 @@ const tasks: Task[] = [
     ]
   },
   {
-    id: 7,
+    id: 8,
     title: "Documentation & Polish",
     status: "in_progress",
     category: "Frontend",
@@ -118,20 +132,6 @@ const tasks: Task[] = [
       { name: "Add dashboard screenshots to README", completed: false },
       { name: "Update landing page with accurate features", completed: true },
       { name: "Write deployment guide", completed: false }
-    ]
-  },
-  {
-    id: 8,
-    title: "CI/CD Self-Healing Demo Scenario",
-    status: "in_progress",
-    category: "AI/ML",
-    effort: "L · 4 days",
-    description: "Build a compelling demo showing Nexus automatically fixing a failing GitLab pipeline.",
-    subtasks: [
-      { name: "Create sample GitLab project with tests", completed: true },
-      { name: "Implement agent workflow for pipeline monitoring", completed: false },
-      { name: "Add automatic failure detection and analysis", completed: false },
-      { name: "Test end-to-end self-healing workflow", completed: false }
     ]
   }
 ];
@@ -385,6 +385,40 @@ uv run python -m framework run \\
           <div className="text-center mb-16">
             <h2 className="text-5xl font-extrabold text-gray-900 mb-4">Development Progress</h2>
             <p className="text-xl text-gray-700">Track our hackathon features and implementation status</p>
+            
+            {/* Critical Gap Callout */}
+            <div className="mt-8 max-w-4xl mx-auto">
+              <div className="glass-effect rounded-2xl p-8 border-2 border-yellow-400 bg-yellow-50/50">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center text-white text-2xl">
+                      ⚠️
+                    </div>
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Critical: GitLab Agent Not Yet Implemented</h3>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      While the <strong>GitLab client and 9 MCP tools</strong> are fully implemented, the actual <strong>GitLab CI/CD monitoring agent</strong> that uses these tools needs to be built. This is the core demo for the hackathon!
+                    </p>
+                    <div className="bg-white/70 rounded-xl p-4 border border-yellow-300">
+                      <p className="text-sm font-semibold text-gray-800 mb-2">What exists:</p>
+                      <ul className="text-sm text-gray-700 space-y-1 mb-3">
+                        <li>✅ GitLab REST API client (<code className="bg-gray-200 px-2 py-0.5 rounded">framework/gitlab/client.py</code>)</li>
+                        <li>✅ 9 GitLab MCP tools (projects, issues, MRs, pipelines)</li>
+                        <li>✅ Webhook integration and event routing</li>
+                      </ul>
+                      <p className="text-sm font-semibold text-gray-800 mb-2">What's needed:</p>
+                      <ul className="text-sm text-gray-700 space-y-1">
+                        <li>❌ Agent package at <code className="bg-gray-200 px-2 py-0.5 rounded">core/framework/agents/gitlab_cicd/</code></li>
+                        <li>❌ Pipeline monitoring node that responds to webhook events</li>
+                        <li>❌ Failure analysis node that parses job logs</li>
+                        <li>❌ Auto-fix node that creates branches, commits fixes, and opens MRs</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             
             {/* Progress Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-3xl mx-auto">
